@@ -1,12 +1,30 @@
 {
   "name": "Tree of Everything",
-  "short_name": "Tree of Everything",
+  "short_name": "Everything",
   "description": "Grow the universe from the first atom to beyond the multiverse. Every era is a tree; no tree may repeat.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#070a16",
   "theme_color": "#070a16",
   "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
     {
       "src": "favicon.svg",
       "sizes": "any",

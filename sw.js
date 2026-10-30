@@ -10,8 +10,8 @@
  *   GitHub Pages sites.
  */
 const PREFIX = 'tree-of-everything-';
-const CACHE = PREFIX + '5c1d98c1fb00';
-const PRECACHE = ["./","./assets/index-Du97opRg.js","./assets/index-Bhaj9CqL.css","./manifest.webmanifest","./favicon.svg","./icon-192.png","./icon-512.png","./icon-maskable-512.png","./apple-touch-icon.png"];
+const CACHE = PREFIX + '9fbdaf8f2e7e';
+const PRECACHE = ["./","./assets/index-D8FhwU-g.js","./assets/index-BmS7V4NQ.css","./manifest.webmanifest","./favicon.svg","./icon-192.png","./icon-512.png","./icon-maskable-512.png","./apple-touch-icon.png"];
 const SCOPE = self.registration.scope;
 const PAGE_PATHS = [new URL(SCOPE).pathname, new URL(SCOPE).pathname + 'index.html'];
 
@@ -32,6 +32,15 @@ self.addEventListener('activate', (event) => {
       .then((keys) => Promise.all(keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim()),
   );
+});
+
+// Open pages ask which files this version serves. A page whose own files are not
+// among them runs older code and reloads into this version at a quiet moment
+// (src/main.ts). Every later version must keep answering, or open pages would
+// take it for an unknown version and reload even when they are current.
+self.addEventListener('message', (event) => {
+  const port = event.ports && event.ports[0];
+  if (port && event.data && event.data.type === 'files') port.postMessage({ files: PRECACHE.map((u) => new URL(u, SCOPE).href) });
 });
 
 const cacheable = (res) => res && res.ok && res.type === 'basic';

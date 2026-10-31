@@ -10,8 +10,8 @@
  *   GitHub Pages sites.
  */
 const PREFIX = 'tree-of-everything-';
-const CACHE = PREFIX + '231cdf224765';
-const PRECACHE = ["./","./assets/index-CBpadgC5.js","./assets/index-BmS7V4NQ.css","./manifest.webmanifest","./favicon.svg","./icon-192.png","./icon-512.png","./icon-maskable-512.png","./apple-touch-icon.png"];
+const CACHE = PREFIX + '32e3dfed95ba';
+const PRECACHE = ["./","./assets/index-DpbkDHwZ.js","./assets/index-eWf_jUXE.css","./manifest.webmanifest","./favicon.svg","./icon-192.png","./icon-512.png","./icon-maskable-512.png","./apple-touch-icon.png"];
 const SCOPE = self.registration.scope;
 const PAGE_PATHS = [new URL(SCOPE).pathname, new URL(SCOPE).pathname + 'index.html'];
 
